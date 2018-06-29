@@ -76,16 +76,25 @@ class App extends Component {
 				
 				{/*api output goes here*/}
 				
+				<h2>{this.state.weatherData.name}</h2>
+				
 				<div>
 				{this.state.weatherData.weather.map(function(weather) {
 					return(
 					<div>
-					<p> {weather.id} </p>
 					<p> {weather.main} </p>
+					<p> {weather.temp} </p>
 					</div>)
 				})}
+				
+				
+				
+				<a href="#"> more info... </a>
+				
 				</div>
-				<h2>{this.state.weatherData.dt}</h2>
+			
+				
+				
 				
 			</div>	
 		)
