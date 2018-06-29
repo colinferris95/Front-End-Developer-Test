@@ -63,17 +63,28 @@ class App extends Component {
 	if (this.state.requestFailed) return <p>Failed!</p>
     if (!this.state.weatherData) return <p>Loading...</p>
 	
+	
+	
 		return (
 			<div>
 				<h2> call weather data </h2>
-				/*form to call the api*/
+				{/*form to call the api*/}
 				<form>
 					<input type="submit" value="Submit" onClick={this.handleSubmit} />
 				</form>
 				
 				
-				/*api output goes here*/
+				{/*api output goes here*/}
 				
+				<div>
+				{this.state.weatherData.weather.map(function(weather) {
+					return(
+					<div>
+					<p> {weather.id} </p>
+					<p> {weather.main} </p>
+					</div>)
+				})}
+				</div>
 				<h2>{this.state.weatherData.dt}</h2>
 				
 			</div>	
