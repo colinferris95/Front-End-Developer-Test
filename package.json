@@ -1,0 +1,19 @@
+{
+  "name": "front-end-developer-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/colinferris95/Front-End-Developer-Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/colinferris95/Front-End-Developer-Test/issues"
+  },
+  "homepage": "https://github.com/colinferris95/Front-End-Developer-Test#readme"
+}
