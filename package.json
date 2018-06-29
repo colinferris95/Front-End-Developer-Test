@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack-dev-server --env.dev",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/colinferris95/Front-End-Developer-Test/issues"
   },
-  "homepage": "https://github.com/colinferris95/Front-End-Developer-Test#readme"
+  "homepage": "https://github.com/colinferris95/Front-End-Developer-Test#readme",
+  "devDependencies": {
+    "webpack": "^4.13.0",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "webpack-cli": "^3.0.8"
+  }
 }
