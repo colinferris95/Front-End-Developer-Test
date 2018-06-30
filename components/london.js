@@ -2,11 +2,13 @@
 //imports
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import roundTo from 'round-to'
 
 
 //default api with key attached for now
-const apiurl = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=edd3b79527fbe606b38fd4757220f789'
+const apiurl = 'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
 
+const forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?q=London&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
 
 
 //build the app
@@ -24,12 +26,31 @@ export class London extends Component {
   }
 	//grabs the url and sets the data
   componentDidMount() {
+	  
+	  
     fetch(apiurl)
       .then(res => res.json())
 	  .then(
 	  (result) => {
 		 this.setState({
 			weatherData:result
+	    });
+	  },
+	  (error) => {
+		  this.setState({
+			requestFailed : true ,
+			error
+		  });
+	  }
+	)
+	
+	
+	fetch(forecasturl)
+      .then(res => res.json())
+	  .then(
+	  (result) => {
+		 this.setState({
+			forecastData:result
 	    });
 	  },
 	  (error) => {
@@ -57,28 +78,35 @@ export class London extends Component {
 		
 	if (this.state.requestFailed) return <p>Failed!</p>
     if (!this.state.weatherData) return <p>Loading...</p>
+	if (!this.state.forecastData) return <p>Loading...</p>
 	
 	
 	
 		return (
 			<div>
-				<h2> London Deatiled Weather </h2>
+				<h1> London Deatiled Weather </h1>
 				{/*form to call the api*/}
 	
 				
 				{/*api output goes here*/}
 				
 				<h2>{this.state.weatherData.name}</h2>
+				<h2>{this.state.weatherData.sys.country}</h2>
+				
+				
+				<h2>{this.state.weatherData.main.temp }</h2>
+				<h2>{this.state.weatherData.main.humidity }%</h2>
 				
 				<div>
 				{this.state.weatherData.weather.map(function(weather) {
 					return(
 					<div>
-					<p> {weather.main} </p>
-					<p> {weather.temp} </p>
+					<h2> {weather.description} </h2>
+					
 					</div>)
 				})}
-				<h2>{this.state.weatherData.main.temp}</h2>
+				
+				<h2>{this.state.forecastData.cod}</h2>
 				
 		
 				

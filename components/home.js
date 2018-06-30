@@ -85,8 +85,9 @@ export class Home extends Component {
 				
 				return(
 				<div>
-				<h2>{list.name}</h2>
+				<h1>{list.name}</h1>
 				<h2>{list.main.temp}</h2>
+				<h2>{list.sys.country}</h2>
 				</div>)
 				
 				
