@@ -64,10 +64,7 @@ export class London extends Component {
 			<div>
 				<h2> London Deatiled Weather </h2>
 				{/*form to call the api*/}
-				<form>
-					<input type="submit" value="Submit" onClick={this.handleSubmit} />
-				</form>
-				
+	
 				
 				{/*api output goes here*/}
 				
@@ -81,10 +78,9 @@ export class London extends Component {
 					<p> {weather.temp} </p>
 					</div>)
 				})}
+				<h2>{this.state.weatherData.main.temp}</h2>
 				
-				
-				
-				<a href="london.js"> more info... </a>
+		
 				
 				</div>
 			

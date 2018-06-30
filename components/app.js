@@ -4,7 +4,7 @@ import Home from './home'
 import London from './london'
 import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
 //default api with key attached for now
-const apiurl = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=edd3b79527fbe606b38fd4757220f789'
+
 
 
 
@@ -20,34 +20,33 @@ export class App extends Component {
 
 	
 	
-	
+	{/*main app navigation*/}
 		return (
 
 				
 		<div>
 				
-
+	
 				{/* Route components are rendered if the path prop matches the current URL */}
-		<BrowserRouter>  
-			<div>
+			<BrowserRouter>  
+				<div>
 			
-			<nav className="navbar navbar-light">
-				<ul className="nav navbar-nav">
+				<nav className="navbar navbar-light">
+					<ul className="nav navbar-nav">
 
-           {/* Link components are used for linking to other views */}
-					<li><Link to="/">Home</Link></li>
-					<li><Link to="/london">London</Link></li>
-			
-
-				</ul>
+				{/* Link components are used for linking to other views */}
+						<li><Link to="/Front-End-Developer-Test">Home</Link></li>
+						<li><Link to="/Front-End-Developer-Test/london">London</Link></li>
+		
+					</ul>
 				</nav>
 			
-           <Route exact={true}  path="/" component={Home}/>
-           <Route path="/london" component={London}/>
+				<Route exact={true}  path="/Front-End-Developer-Test" component={Home}/>
+				<Route path="/Front-End-Developer-Test/london" component={London}/>
   
-		   </div>
-		</BrowserRouter>
-			</div>	
+				</div>
+			</BrowserRouter>
+		</div>	
 
 		
 		)

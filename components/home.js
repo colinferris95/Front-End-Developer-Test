@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import London from './london'
 import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
+
 //default api with key attached for now
-const apiurl = 'https://api.openweathermap.org/data/2.5/weather?q=London&appid=edd3b79527fbe606b38fd4757220f789'
+const apiurl = 'https://api.openweathermap.org/data/2.5/group?id=5128581,2643743,5368361,2147714,1819729&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
 
 
 
@@ -59,23 +60,22 @@ export class Home extends Component {
     if (!this.state.weatherData) return <p>Loading...</p>
 	
 	
-	
+	{/*this page will render the weather overview for the cities*/}
 		return (
 
 			<div>
 				<h2> call weather data </h2>
 				{/*form to call the api*/}
-				<form>
-					<input type="submit" value="Submit" onClick={this.handleSubmit} />
-				</form>
+			
 				
-				
+				{this.state.weatherData.list.map(function(list) {
+					
 				{/*api output goes here*/}
 				
-				<h2>{this.state.weatherData.name}</h2>
 				
-			
-				{this.state.weatherData.weather.map(function(weather) {
+				
+				{/*'weather' in the json data is an array object, needs to be mapped*/}
+				{list.weather.map(function(weather) {
 					return(
 					<div>
 					<p> {weather.main} </p>
@@ -83,10 +83,14 @@ export class Home extends Component {
 					</div>)
 				})}
 				
-				<h2>{this.state.weatherData.main.temp}</h2>
+				return(
+				<div>
+				<h2>{list.name}</h2>
+				<h2>{list.main.temp}</h2>
+				</div>)
 				
 				
-				
+				})}
 				
 			
 		
