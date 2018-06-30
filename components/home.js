@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import London from './london'
 import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
 
 //default api with key attached for now
