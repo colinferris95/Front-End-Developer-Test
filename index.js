@@ -9,4 +9,4 @@ import App from './components/app';
 
 //select the html element and render the app
 const root = document.querySelector('#app')
-ReactDOM.render( <App /> , root)
+ReactDOM.render(<App />  , root)
