@@ -106,7 +106,42 @@ export class Hongkong extends Component {
 					</div>)
 				})}
 				
-				<h2>{this.state.forecastData.cod}</h2>
+				{this.state.forecastData.list.map(function(list) {
+					
+				{/*api output goes here*/}
+				return(
+				<div class="col-md-2">
+				
+				
+				
+				{/*'weather' in the json data is an array object, needs to be mapped*/}
+				
+				
+				
+				<div>
+				<h1>{list.dt_txt}</h1>
+				<h2>{list.main.temp}</h2>
+				<h2>{list.main.humidity}%</h2>
+				</div>
+				
+				{list.weather.map(function(weather) {
+					return(
+					
+					<div>
+					<p> {weather.description} </p>
+					
+					</div>)
+				})}
+				
+				
+				</div>
+				
+				)
+				
+				
+			
+				
+				})}
 				
 		
 				

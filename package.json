@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy" : "npm run build&&gh-pages -d build",
     "dev": "webpack-dev-server --env.dev",
     "build": "webpack -p --history-api-fallback --hot --inline --progress --colors"
   },
