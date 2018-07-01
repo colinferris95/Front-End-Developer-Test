@@ -62,38 +62,52 @@ export class Home extends Component {
 	{/*this page will render the weather overview for the cities*/}
 		return (
 
-			<div>
-				<h2> call weather data </h2>
+			<div class="container-fluid">
+			<div class="row align-items-center">
+			
+		
 				{/*form to call the api*/}
 			
 				
 				{this.state.weatherData.list.map(function(list) {
 					
 				{/*api output goes here*/}
+				return(
+				<div class="col-md-2">
 				
 				
 				
 				{/*'weather' in the json data is an array object, needs to be mapped*/}
+				
+				
+				
+				<div>
+				<h1>{list.name}</h1>
+				<h2>{list.main.temp}</h2>
+				<h2>{list.sys.country}</h2>
+				</div>
+				
 				{list.weather.map(function(weather) {
 					return(
+					
 					<div>
 					<p> {weather.main} </p>
 					
 					</div>)
 				})}
 				
-				return(
-				<div>
-				<h1>{list.name}</h1>
-				<h2>{list.main.temp}</h2>
-				<h2>{list.sys.country}</h2>
-				</div>)
 				
+				</div>
+				
+				)
+				
+				
+			
 				
 				})}
 				
 			
-		
+			</div>
 			</div>	
 
 		

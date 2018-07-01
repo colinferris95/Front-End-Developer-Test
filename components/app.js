@@ -28,7 +28,7 @@ export class App extends Component {
 		return (
 
 				
-		<div>
+		<div class="container-fluid">
 				
 	
 				{/* Route components are rendered if the path prop matches the current URL */}
