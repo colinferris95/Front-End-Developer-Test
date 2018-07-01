@@ -3,6 +3,7 @@ module.exports = options => {
     entry: './index.js',
     output: {
       filename: 'bundle.js',
+	  publicPath: '/'
     },
     module: {
       rules: [
@@ -22,7 +23,8 @@ module.exports = options => {
     },
 	devServer: {
 		host:'45.55.150.116',
-		port: 8888
+		port: 8888,
+		historyApiFallback: true
 		}
 	
   }

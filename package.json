@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --env.dev",
-    "build": "webpack -p --progress"
+    "build": "webpack -p --history-api-fallback --hot --inline --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/colinferris95/Front-End-Developer-Test/issues"
   },
-  "homepage": "https://github.com/colinferris95/Front-End-Developer-Test#readme",
+  "homepage": "https://colinferris95.github.io/Front-End-Developer-Test",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "babel-runtime": "^6.26.0",
+    "gh-pages": "^1.2.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-linkify": "^0.2.2",
