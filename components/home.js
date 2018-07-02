@@ -75,7 +75,7 @@ export class Home extends Component {
 				{/*api output goes here*/}
 				return(
 				<ReactBootstrap.Carousel.Item>
-					<img width={1200} height={500} alt="900x500" src="img/placeholder.png" />
+					<img width={1200} height={500} alt="900x500" src="img/weatherimg.png" />
 					<ReactBootstrap.Carousel.Caption>
 				
 				
