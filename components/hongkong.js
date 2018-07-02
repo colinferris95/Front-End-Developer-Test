@@ -12,8 +12,10 @@ const forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?id=1819729
 
 
 var bootstrapDateArray = [];
-var i = -1;
+var objectArray = [];
 
+var i = -1;
+var k = -1;
 var uniqueArray = function(arrArg) {
 					return arrArg.filter(function(elem, pos,arr) {
 						return arr.indexOf(elem) == pos;
@@ -145,13 +147,16 @@ export class Hongkong extends Component {
 				
 		
 				
+				k++
 				if (newArray[i] == mm_dd ) { 
 				
 				
 				} else {
+					
 					i++ 
 				}
 				
+				objectArray.push([i,mm_dd,list.main.temp,list.main.humidity])
 				
 				return(
 				<div class="row align-items-center">
@@ -159,6 +164,7 @@ export class Hongkong extends Component {
 				
 				<h1> {i} </h1>
 					{newArray[i]}
+					{objectArray[k]}
 				
 					
 					
@@ -192,7 +198,6 @@ export class Hongkong extends Component {
 				)
 				
 				
-			
 				
 				})}
 				
@@ -205,6 +210,8 @@ export class Hongkong extends Component {
 				
 			</div>	
 		)
+
+
 	}
 }
 
