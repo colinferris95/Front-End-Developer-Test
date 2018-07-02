@@ -93,7 +93,7 @@ export class Home extends Component {
 							return(
 					
 								<div>
-									<h2 class="card-text"> {weather.main} </h2>
+									<h2 class="card-text"> {weather.description} </h2>
 					
 								</div>)
 						})}

@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import roundTo from 'round-to'
+import * as ReactBootstrap from 'react-bootstrap'
 
 
 //default api with key attached for now
@@ -77,9 +78,10 @@ export class Hongkong extends Component {
   
   createTable = (arr,length) => {
     let table = []
-
-    // Outer loop to create parent
+	let tables = []
 	
+    // Outer loop to create parent
+
 	console.log(arr)
 	console.log(length)
 	for (let z = 0; z <= length; z++) {
@@ -87,16 +89,34 @@ export class Hongkong extends Component {
 		let children = []
 		console.log('test')
 		console.log(z)
+		
+		
 		for (let x = 0; x < arr.length; x++){
 		
 			if (arr[x][0] == z ){
+					
+					children.push(<tbody><tr><td>{arr[x][1]}</td><td>{arr[x][2]}</td><td>{arr[x][3]}C</td><td>{arr[x][4]}%</td><td>{arr[x][5]}</td></tr></tbody>)
 				
-					children.push(<td>{arr[x][1]}</td>)
+			
 					
 			}
+		
 		}
+	
+			table.push(<ReactBootstrap.Table>
+			<thead>
+						<tr>
+							<th scope="col">Day</th>
+							<th scope="col">Hour</th>
+							<th scope="col">Temp</th>
+							<th scope="col">Humidity</th>
+							<th scope="col">Weather Description</th>
 						
-			table.push(<tr>{children}</tr>)
+						</tr>
+					</thead>
+			
+			{children}</ReactBootstrap.Table>)			
+			
 	
 	}
 	
@@ -105,21 +125,7 @@ export class Hongkong extends Component {
    
   }
   
-  createTable2 = () => {
-    let table = []
 
-    // Outer loop to create parent
-    for (let i = 0; i < 3; i++) {
-      let children = []
-      //Inner loop to create children
-      for (let j = 0; j < 5; j++) {
-        children.push(<td>{`Column ${j + 1}`}</td>)
-      }
-      //Create the parent and add the children
-      table.push(<tr>{children}</tr>)
-    }
-    return table
-  }
   
   
 
@@ -194,6 +200,7 @@ export class Hongkong extends Component {
 					var newArray = uniqueArray(bootstrapDateArray);
 					var full_date = list.dt_txt;
 					var mm_dd = full_date.substr(5,6);
+					var hour = full_date.substr(10,14);
 				
 		
 				
@@ -205,16 +212,24 @@ export class Hongkong extends Component {
 					
 						i++ 
 					}
+					var desc
+					{list.weather.map(function(weather) {
+						
+						desc = weather.description
+					
 				
-					objectArray.push([i,mm_dd,list.main.temp,list.main.humidity])
+					})}
+				
+					objectArray.push([i,mm_dd,hour,list.main.temp,list.main.humidity,desc])
 				
 				
 				
 				})}
 				
-				<table>
-					{this.createTable(objectArray,i)}
-				</table>
+			
+  
+				{this.createTable(objectArray,i)}
+				
 				
 			
 				
