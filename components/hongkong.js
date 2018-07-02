@@ -74,6 +74,56 @@ export class Hongkong extends Component {
 	)
 	  
   }
+  
+  createTable = (arr,length) => {
+    let table = []
+
+    // Outer loop to create parent
+	
+	console.log(arr)
+	console.log(length)
+	for (let z = 0; z <= length; z++) {
+		
+		let children = []
+		console.log('test')
+		console.log(z)
+		for (let x = 0; x < arr.length; x++){
+		
+			if (arr[x][0] == z ){
+				
+					children.push(<td>{arr[x][1]}</td>)
+					
+			}
+		}
+						
+			table.push(<tr>{children}</tr>)
+	
+	}
+	
+	return table
+	
+   
+  }
+  
+  createTable2 = () => {
+    let table = []
+
+    // Outer loop to create parent
+    for (let i = 0; i < 3; i++) {
+      let children = []
+      //Inner loop to create children
+      for (let j = 0; j < 5; j++) {
+        children.push(<td>{`Column ${j + 1}`}</td>)
+      }
+      //Create the parent and add the children
+      table.push(<tr>{children}</tr>)
+    }
+    return table
+  }
+  
+  
+
+				
 
 
   
@@ -140,68 +190,33 @@ export class Hongkong extends Component {
 				
 				{this.state.forecastData.list.map(function(list) {
 					
-				{/*api output goes here*/}
-				var newArray = uniqueArray(bootstrapDateArray);
-				var full_date = list.dt_txt;
-				var mm_dd = full_date.substr(5,6);
+					{/*api output goes here*/}
+					var newArray = uniqueArray(bootstrapDateArray);
+					var full_date = list.dt_txt;
+					var mm_dd = full_date.substr(5,6);
 				
 		
 				
-				k++
-				if (newArray[i] == mm_dd ) { 
+					k++
+					if (newArray[i] == mm_dd ) { 
 				
 				
-				} else {
+					} else {
 					
-					i++ 
-				}
+						i++ 
+					}
 				
-				objectArray.push([i,mm_dd,list.main.temp,list.main.humidity])
-				
-				return(
-				<div class="row align-items-center">
-				<div class="col-md-2">
-				
-				<h1> {i} </h1>
-					{newArray[i]}
-					{objectArray[k]}
-				
-					
-					
-				{/*'weather' in the json data is an array object, needs to be mapped*/}
-				
-				
-				
-				<div>
-				<h1>{mm_dd}</h1>
-				<h2>{list.main.temp}</h2>
-				<h2>{list.main.humidity}%</h2>
-				</div>
-				
-				{list.weather.map(function(weather) {
-					
-				
-					
-					return(
-					
-					<div>
-					<p> {weather.description} </p>
-					
-					</div>)
-				})}
-				
-				
-				</div>
-				
-				</div>
-				
-				)
+					objectArray.push([i,mm_dd,list.main.temp,list.main.humidity])
 				
 				
 				
 				})}
 				
-		
+				<table>
+					{this.createTable(objectArray,i)}
+				</table>
+				
+			
 				
 				</div>
 			
@@ -210,6 +225,12 @@ export class Hongkong extends Component {
 				
 			</div>	
 		)
+		
+
+						  
+						  
+				
+		
 
 
 	}
