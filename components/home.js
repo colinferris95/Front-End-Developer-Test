@@ -62,8 +62,8 @@ export class Home extends Component {
 	{/*this page will render the weather overview for the cities*/}
 		return (
 
-			<div class="container-fluid">
-			<div class="row align-items-center">
+			<div >
+		
 			
 		
 				{/*form to call the api*/}
@@ -73,30 +73,31 @@ export class Home extends Component {
 					
 				{/*api output goes here*/}
 				return(
-				<div class="col-md-2">
+				<div class="card col-md-2" >
+					<div class="card-body">
 				
 				
 				
-				{/*'weather' in the json data is an array object, needs to be mapped*/}
+						{/*'weather' in the json data is an array object, needs to be mapped*/}
 				
 				
 				
-				<div>
-				<h1>{list.name}</h1>
-				<h2>{list.main.temp}</h2>
-				<h2>{list.sys.country}</h2>
-				</div>
+						<div>
+							<h1 class="card-title">{list.name}</h1>
+							<h2 class="card-text">{list.main.temp}</h2>
+						</div>
 				
-				{list.weather.map(function(weather) {
-					return(
+						{list.weather.map(function(weather) {
+							return(
 					
-					<div>
-					<p> {weather.main} </p>
+								<div>
+									<h2 class="card-text"> {weather.main} </h2>
 					
-					</div>)
-				})}
+								</div>)
+						})}
 				
 				
+					</div>
 				</div>
 				
 				)
@@ -106,8 +107,7 @@ export class Home extends Component {
 				
 				})}
 				
-			
-			</div>
+	
 			</div>	
 
 		

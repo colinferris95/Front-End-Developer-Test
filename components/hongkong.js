@@ -11,6 +11,16 @@ const apiurl = 'https://api.openweathermap.org/data/2.5/weather?id=1819729&units
 const forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?id=1819729&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
 
 
+var bootstrapDateArray = [];
+var i = -1;
+
+var uniqueArray = function(arrArg) {
+					return arrArg.filter(function(elem, pos,arr) {
+						return arr.indexOf(elem) == pos;
+					});
+				};
+
+
 //build the app
 export class Hongkong extends Component {
 	
@@ -106,25 +116,66 @@ export class Hongkong extends Component {
 					</div>)
 				})}
 				
+				
+				{this.state.forecastData.list.map(function(list) {
+					var full_date = list.dt_txt;
+					var mm_dd = full_date.substr(5,6);
+					
+				
+					bootstrapDateArray.push(mm_dd);
+				
+					
+					
+					
+			
+					
+				})}
+				
+				
+				
+				
+				
+				
 				{this.state.forecastData.list.map(function(list) {
 					
 				{/*api output goes here*/}
+				var newArray = uniqueArray(bootstrapDateArray);
+				var full_date = list.dt_txt;
+				var mm_dd = full_date.substr(5,6);
+				
+		
+				
+				if (newArray[i] == mm_dd ) { 
+				
+				
+				} else {
+					i++ 
+				}
+				
+				
 				return(
+				<div class="row align-items-center">
 				<div class="col-md-2">
 				
+				<h1> {i} </h1>
+					{newArray[i]}
 				
-				
+					
+					
 				{/*'weather' in the json data is an array object, needs to be mapped*/}
 				
 				
 				
 				<div>
-				<h1>{list.dt_txt}</h1>
+				<h1>{mm_dd}</h1>
 				<h2>{list.main.temp}</h2>
 				<h2>{list.main.humidity}%</h2>
 				</div>
 				
 				{list.weather.map(function(weather) {
+					
+				
+					
 					return(
 					
 					<div>
@@ -133,6 +184,8 @@ export class Hongkong extends Component {
 					</div>)
 				})}
 				
+				
+				</div>
 				
 				</div>
 				
