@@ -76,25 +76,24 @@ export class Hongkong extends Component {
 	  
   }
   
+  
+  //creates the forcast table
   createTable = (arr,length) => {
     let table = []
-	let tables = []
+
 	
     // Outer loop to create parent
 
-	console.log(arr)
-	console.log(length)
+
 	for (let z = 0; z <= length; z++) {
 		
 		let children = []
-		console.log('test')
-		console.log(z)
-		
+	
 		
 		for (let x = 0; x < arr.length; x++){
 		
 			if (arr[x][0] == z ){
-					
+					//all of the rows for the specific day
 					children.push(<tbody><tr><td>{arr[x][1]}</td><td>{arr[x][2]}</td><td>{arr[x][3]}C</td><td>{arr[x][4]}%</td><td>{arr[x][5]}</td></tr></tbody>)
 				
 			
@@ -103,6 +102,7 @@ export class Hongkong extends Component {
 		
 		}
 	
+			//add the table tags
 			table.push(<ReactBootstrap.Table>
 			<thead>
 						<tr>
@@ -151,13 +151,15 @@ export class Hongkong extends Component {
 	
 	
 		return (
-			<div>
+			<div class="container">
+			
+				<div >
+				
 				<h1> Hong Kong Deatiled Weather </h1>
-				{/*form to call the api*/}
+			
 	
 				
-				{/*api output goes here*/}
-				
+
 				<h2>{this.state.weatherData.name}</h2>
 				<h2>{this.state.weatherData.sys.country}</h2>
 				
@@ -174,7 +176,7 @@ export class Hongkong extends Component {
 					</div>)
 				})}
 				
-				
+				{/*//map the forecast data*/}
 				{this.state.forecastData.list.map(function(list) {
 					var full_date = list.dt_txt;
 					var mm_dd = full_date.substr(5,6);
@@ -188,16 +190,17 @@ export class Hongkong extends Component {
 			
 					
 				})}
+				</div>
 				
 				
 				
 				
-				
-				
+				{/*//map the forecast data*/}
 				{this.state.forecastData.list.map(function(list) {
 					
-					{/*api output goes here*/}
+					//remove duplicates
 					var newArray = uniqueArray(bootstrapDateArray);
+					
 					var full_date = list.dt_txt;
 					var mm_dd = full_date.substr(5,6);
 					var hour = full_date.substr(10,14);
@@ -205,6 +208,9 @@ export class Hongkong extends Component {
 		
 				
 					k++
+					
+					
+				    //if the date is the same, dont update the counter
 					if (newArray[i] == mm_dd ) { 
 				
 				
@@ -214,23 +220,25 @@ export class Hongkong extends Component {
 					}
 					var desc
 					{list.weather.map(function(weather) {
-						
+						//grab the weather description
 						desc = weather.description
 					
 				
 					})}
 				
+					//push the weather of that time to the array
 					objectArray.push([i,mm_dd,hour,list.main.temp,list.main.humidity,desc])
 				
 				
 				
 				})}
-				
-			
+				{/*//forecast tables*/}
+				<div >
+					<h1> Forecast </h1>
   
-				{this.createTable(objectArray,i)}
+					{this.createTable(objectArray,i)}
 				
-				
+				</div>
 			
 				
 				</div>

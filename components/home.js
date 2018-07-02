@@ -86,7 +86,7 @@ export class Home extends Component {
 				
 						<div>
 							<h1 class="card-title">{list.name}</h1>
-							<h2 class="card-text">{list.main.temp}</h2>
+							<h2 class="card-text">{list.main.temp}C</h2>
 						</div>
 				
 						{list.weather.map(function(weather) {
