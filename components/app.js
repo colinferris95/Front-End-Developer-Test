@@ -42,25 +42,32 @@ export class App extends Component {
 					<ReactBootstrap.Navbar>
 						<ReactBootstrap.Navbar.Header>
 							<ReactBootstrap.Navbar.Brand>
-								<a href="#home">React-Bootstrap</a>
+								<Link to="/Front-End-Developer-Test/">Home</Link>
 							</ReactBootstrap.Navbar.Brand>
 						</ReactBootstrap.Navbar.Header>
 						<ReactBootstrap.Nav>
-							<ReactBootstrap.NavItem eventKey={1} href="#">
-								Link
-							</ReactBootstrap.NavItem>
-						<ReactBootstrap.NavItem eventKey={2} href="#">
-								Link
+						
+						<ReactBootstrap.NavItem eventKey={1} href="#">
+								<Link to="/Front-End-Developer-Test/newyork">New York</Link>
 						</ReactBootstrap.NavItem>
-						<ReactBootstrap.NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-							<ReactBootstrap.MenuItem eventKey={3.1}><Link to="/Front-End-Developer-Test">Home</Link></ReactBootstrap.MenuItem>
-							<ReactBootstrap.MenuItem eventKey={3.2}><Link to="/Front-End-Developer-Test/newyork">New York</Link></ReactBootstrap.MenuItem>
-							<ReactBootstrap.MenuItem eventKey={3.3}><Link to="/Front-End-Developer-Test/london">London</Link></ReactBootstrap.MenuItem>
-							<ReactBootstrap.MenuItem divider />
-							<ReactBootstrap.MenuItem eventKey={3.4}><Link to="/Front-End-Developer-Test/losangeles">Los Angeles</Link></ReactBootstrap.MenuItem>
-							<ReactBootstrap.MenuItem eventKey={3.5}><Link to="/Front-End-Developer-Test/sydney">Sydney</Link></ReactBootstrap.MenuItem>
-							<ReactBootstrap.MenuItem eventKey={3.6}><Link to="/Front-End-Developer-Test/hongkong">Hong Kong</Link></ReactBootstrap.MenuItem>
-						</ReactBootstrap.NavDropdown>
+						
+						<ReactBootstrap.NavItem eventKey={2} href="#">
+								<Link to="/Front-End-Developer-Test/london">London</Link>
+						</ReactBootstrap.NavItem>
+						
+						<ReactBootstrap.NavItem eventKey={3} href="#">
+								<Link to="/Front-End-Developer-Test/losangeles">Los Angeles</Link>
+						</ReactBootstrap.NavItem>
+						
+						<ReactBootstrap.NavItem eventKey={4} href="#">
+								<Link to="/Front-End-Developer-Test/sydney">Sydney</Link>
+						</ReactBootstrap.NavItem>
+						
+						<ReactBootstrap.NavItem eventKey={5} href="#">
+								<Link to="/Front-End-Developer-Test/hongkong">Hong Kong</Link>
+						</ReactBootstrap.NavItem>
+						
+						
 						</ReactBootstrap.Nav>
 					</ReactBootstrap.Navbar>
 			

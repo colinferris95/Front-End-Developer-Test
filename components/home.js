@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
+import * as ReactBootstrap from 'react-bootstrap'
 
 //default api with key attached for now
 const apiurl = 'https://api.openweathermap.org/data/2.5/group?id=5128581,2643743,5368361,2147714,1819729&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
@@ -61,8 +62,8 @@ export class Home extends Component {
 	
 	{/*this page will render the weather overview for the cities*/}
 		return (
-
-			<div >
+		<ReactBootstrap.Grid className="container">
+			<ReactBootstrap.Carousel>
 		
 			
 		
@@ -73,8 +74,9 @@ export class Home extends Component {
 					
 				{/*api output goes here*/}
 				return(
-				<div class="card col-md-2" >
-					<div class="card-body">
+				<ReactBootstrap.Carousel.Item>
+					<img width={1200} height={500} alt="900x500" src="img/placeholder.png" />
+					<ReactBootstrap.Carousel.Caption>
 				
 				
 				
@@ -97,8 +99,8 @@ export class Home extends Component {
 						})}
 				
 				
-					</div>
-				</div>
+					</ReactBootstrap.Carousel.Caption>
+				</ReactBootstrap.Carousel.Item>
 				
 				)
 				
@@ -108,8 +110,8 @@ export class Home extends Component {
 				})}
 				
 	
-			</div>	
-
+			</ReactBootstrap.Carousel>
+		</ReactBootstrap.Grid>
 		
 		)
 	}
