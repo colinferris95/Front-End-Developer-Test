@@ -1,17 +1,7 @@
-// index.js
-//imports
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import roundTo from 'round-to'
 import * as ReactBootstrap from 'react-bootstrap'
 
-//default api with key attached for now
-const apiurl = 'https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
-
-const forecasturl = 'https://api.openweathermap.org/data/2.5/forecast?q=London&units=metric&appid=edd3b79527fbe606b38fd4757220f789'
-
-
-//build the app
 
 var bootstrapDateArray = [];
 var objectArray = [];
@@ -24,61 +14,13 @@ var uniqueArray = function(arrArg) {
 					});
 				};
 
+		
 
-//build the app
-export class London extends Component {
-	
-	constructor(props) {
-    super(props)
-	//set the request as failed
-    this.state = {
-      requestFailed: false
-    }
 
-   
-	 this.handleSubmit = this.handleSubmit.bind(this);
-  }
-	//grabs the url and sets the data
-  componentDidMount() {
-	  
-	  
-    fetch(apiurl)
-      .then(res => res.json())
-	  .then(
-	  (result) => {
-		 this.setState({
-			weatherData:result
-	    });
-	  },
-	  (error) => {
-		  this.setState({
-			requestFailed : true ,
-			error
-		  });
-	  }
-	)
 	
-	
-	fetch(forecasturl)
-      .then(res => res.json())
-	  .then(
-	  (result) => {
-		 this.setState({
-			forecastData:result
-	    });
-	  },
-	  (error) => {
-		  this.setState({
-			requestFailed : true ,
-			error
-		  });
-	  }
-	)
-	  
-  }
-  
-  
-  //creates the forcast table
+	export var generatePage = function(weatherData,forecastData){
+		
+		 //creates the forcast table
   createTable = (arr,length) => {
     let table = []
 
@@ -125,29 +67,16 @@ export class London extends Component {
 	
    
   }
-  
 
-  
-  
-
-				
-
-
-  
-  handleSubmit(e){
-	  //handle the form event to run the api function on form submit
-	  this.componentDidMount();
-	  
-  }
-	
-	
-	
-	
-	render() {
 		
-	if (this.state.requestFailed) return <p>Failed!</p>
-    if (!this.state.weatherData) return <p>Loading...</p>
-	if (!this.state.forecastData) return <p>Loading...</p>
+		
+		
+		
+	
+		
+
+		if (!weatherData) return <p>Loading...</p>
+		if (!forecastData) return <p>Loading...</p>
 	
 	
 	
@@ -156,15 +85,20 @@ export class London extends Component {
 			
 				<div >
 				
-				<h2>{this.state.weatherData.name}</h2>
-				<h2>{this.state.weatherData.sys.country}</h2>
+	
+			
+	
+				
+
+				<h2>{weatherDataa.name}</h2>
+				<h2>{weatherData.sys.country}</h2>
 				
 				
-				<h2>Temp:{this.state.weatherData.main.temp }C</h2>
-				<h2>Humidity:{this.state.weatherData.main.humidity }%</h2>
+				<h2>{weatherData.temp }</h2>
+				<h2>{weatherData.humidity }%</h2>
 				
 				<div>
-				{this.state.weatherData.weather.map(function(weather) {
+				{weatherData.weather.map(function(weather) {
 					return(
 					<div>
 					<h2> {weather.description} </h2>
@@ -173,7 +107,7 @@ export class London extends Component {
 				})}
 				
 				{/*//map the forecast data*/}
-				{this.state.forecastData.list.map(function(list) {
+				{forecastData.list.map(function(list) {
 					var full_date = list.dt_txt;
 					var mm_dd = full_date.substr(5,6);
 					
@@ -192,7 +126,7 @@ export class London extends Component {
 				
 				
 				{/*//map the forecast data*/}
-				{this.state.forecastData.list.map(function(list) {
+				{forecastData.list.map(function(list) {
 					
 					//remove duplicates
 					var newArray = uniqueArray(bootstrapDateArray);
@@ -252,9 +186,13 @@ export class London extends Component {
 		
 
 
+	
+		
+		
+		
 	}
-}
+	
+	
+	
 
 
-
-export default London;

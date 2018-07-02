@@ -157,17 +157,12 @@ export class Sydney extends Component {
 			
 				<div >
 				
-				<h1> Sydney Deatiled Weather </h1>
-			
-	
-				
-
 				<h2>{this.state.weatherData.name}</h2>
 				<h2>{this.state.weatherData.sys.country}</h2>
 				
 				
-				<h2>{this.state.weatherData.main.temp }</h2>
-				<h2>{this.state.weatherData.main.humidity }%</h2>
+				<h2>Temp:{this.state.weatherData.main.temp }C</h2>
+				<h2>Humidity:{this.state.weatherData.main.humidity }%</h2>
 				
 				<div>
 				{this.state.weatherData.weather.map(function(weather) {

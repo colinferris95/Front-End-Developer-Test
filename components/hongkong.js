@@ -155,8 +155,6 @@ export class Hongkong extends Component {
 			
 				<div >
 				
-				<h1> Hong Kong Deatiled Weather </h1>
-			
 	
 				
 
@@ -164,8 +162,8 @@ export class Hongkong extends Component {
 				<h2>{this.state.weatherData.sys.country}</h2>
 				
 				
-				<h2>{this.state.weatherData.main.temp }</h2>
-				<h2>{this.state.weatherData.main.humidity }%</h2>
+				<h2>Temp:{this.state.weatherData.main.temp }C</h2>
+				<h2>Humidity:{this.state.weatherData.main.humidity }%</h2>
 				
 				<div>
 				{this.state.weatherData.weather.map(function(weather) {
