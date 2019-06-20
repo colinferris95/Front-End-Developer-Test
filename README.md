@@ -15,3 +15,5 @@ The home component makes a multiple city query to ge the current weather informa
 New York, London Los Angeles, Sydney, Hong Kong.
 
 The individual city component pages grab the forecast data for that specific city
+
+Live at: https://colinferris95.github.io/Front-End-Developer-Test/
